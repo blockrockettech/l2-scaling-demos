@@ -15,7 +15,7 @@ contract LexSplitter {
     }
 
     function play() public payable {
-        require(msg.value > amountPerPlayInWei);
+        require(msg.value >= amountPerPlayInWei);
 
         counter = counter + 1;
 
