@@ -19,3 +19,9 @@ selenium-debug.log
 /mnemonic_live.js
 demo-contracts/node_modules/
 l2-scaling-demos.iml
+/loom-testing/loom/
+/loom-testing/extdev_private_key
+/loom-testing/extdev_public_key
+/loom-testing/loom_public_key
+/loom-testing/loom_private_key
+/loom-testing/build/

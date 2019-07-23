@@ -4,8 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy_local_loom": "truffle deploy --network loom_dapp_chain",
+    "deploy_testnet_loom": "truffle deploy --network extdev_plasma_us1",
+    "deploy_ropsten": "truffle deploy --network ropsten",
+    "test": "truffle test --network loom_dapp_chain",
+    "get:loom": "if [ ! -d loom ]; then mkdir loom && cd loom && curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh && chmod +x ./loom && cd ..; fi",
+    "gen:extdev-key": "npm run get:loom && ./loom/loom genkey -k extdev_private_key -a extdev_public_key",
+    "gen:loom-key": "npm run get:loom && ./loom/loom genkey -k loom_private_key -a loom_public_key",
+    "loom:init": "cd loom && chmod +x loom && ./loom init -f && cd ..",
+    "loom:run": "cd loom && ./loom run && cd .."
   },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "loom-truffle-provider": "^0.13.0",
+    "truffle": "^5.0.28",
+    "truffle-hdwallet-provider": "^1.0.14",
+    "truffle-privatekey-provider": "^1.3.0"
+  },
+  "engines": {
+    "node": ">= 10.0.0",
+    "npm": ">= 6.0.0"
+  }
 }
